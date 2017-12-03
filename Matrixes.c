@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#define MAX_MATRIX 5
-#define MIN_MATRIX -4
+#define MAX_MATRIX 10
+#define MIN_MATRIX -9
 #define MIN_STRING 4
 #define MAX_STRING 10
 #define MIN_COLUMN 5
@@ -57,7 +57,7 @@ int main()
 		printf("\n");
 	}
 
-	printf("Third task:find minimum element of random matrix and delete line and column, at the intersection of which is located it\n");
+	printf("Third task:find minimum element of random matrix and delete line and column,\nat the intersection of which is located it.\n");
 	int minimums=0, min=0;
 	int massive_coord[2], min_matrix[m-1][n-1];
 	for (i=0;i<m;i++)                                                          //Minimum of matrix
