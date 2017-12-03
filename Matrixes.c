@@ -15,14 +15,14 @@ int rand_chislo(int min_rand,int max_rand)                                  //Ra
 
 int main()
 {
-	int n, m;                                                               //The size of matrix by random function
-	srand(time(NULL));
-	m = rand_chislo(MIN_STRING,MAX_STRING);
-	n = rand_chislo(MIN_COLUMN,MAX_STRING);
-	int random_matrix[m][n];
-	int i, j;
-	printf("First task: create a random matrix.\n");
-	printf("Result:\n");
+    int n, m;                                                               //The size of matrix by random function
+    srand(time(NULL));
+    m = rand_chislo(MIN_STRING,MAX_STRING);
+    n = rand_chislo(MIN_COLUMN,MAX_STRING);
+    int random_matrix[m][n];
+    int i, j;
+    printf("First task: create a random matrix.\n");
+    printf("Result:\n");
     for (i=0;i<m;i++)                                                       //Matrix by random function
 	{
         for (j=0;j<n;j++)
@@ -33,8 +33,8 @@ int main()
 		printf("\n");
 	}
 
-	printf("Second task: swap first and last lines and turn over them.");
-	int new_matrix[m][n], x=0;
+    printf("Second task: swap first and last lines and turn over them.");
+    int new_matrix[m][n], x=0;
     for (i=0;i<m;i++)
     {
         for (j=0;j<n;j++)
@@ -47,7 +47,7 @@ int main()
 		new_matrix[0][j] = random_matrix[m-1][n-1-j];
 		new_matrix[m-1][n-1-j] = random_matrix[0][j];
 	}
-	printf("\nResult:\n");
+    printf("\nResult:\n");
     for (i=0;i<m;i++)                                                       //Withdraw the changed matrix
 	{
 		for (j=0;j<n;j++)
@@ -57,100 +57,100 @@ int main()
 		printf("\n");
 	}
 
-	printf("Third task:find minimum element of random matrix and delete line and column,\nat the intersection of which is located it.\n");
-	int minimums=0, min=0;
-	int massive_coord[2], min_matrix[m-1][n-1];
-	for (i=0;i<m;i++)                                                       //Minimum of matrix
-	{
-		for (j=0;j<n;j++)
-		{
-			if ( random_matrix[i][j] < min )
-			{
-				min = random_matrix[i][j];
-			}
-		}
-	}
-	printf("Minimum: %d\n", min);
-	for (i=0;i<m;i++)                                                      //How many are there minimums?
-	{
-		for (j=0;j<n;j++)
-		{
-			if ( random_matrix[i][j] == min )
-			{
-				minimums++;
-			}
-		}
-	}
-	if (minimums==1)                                                       //If there is one minimum, we must find its
-	{                                                                      //string and column, delete it and show changed matrix
-		for (i=0;i<m;i++)
-		{
-			for (j=0;j<n;j++)
-			{
-				if ( random_matrix[i][j] == min )
-				{
-					massive_coord[1]=i;
-					massive_coord[2]=j;
-				}
-			}
-		}
-		printf("Result:\n");
-		for (i=0;i<m;i++)
-		{
-			for (j=0;j<n;j++)
-			{
-				if ( i!=massive_coord[1] && j!=massive_coord[2])
-				{
-					min_matrix[i][j] = random_matrix[i][j];
-					printf("%3d ", min_matrix[i][j]);
-				}
-			}
-			if ( i!=massive_coord[1] )
-			{
-				printf("\n");
-			}
-		}
-	}
-	else                                                                 //If there are several same minimums, the program must choose anyboby,
-	{
+    printf("Third task:find minimum element of random matrix and delete line and column,\nat the intersection of which is located it.\n");
+    int minimums=0, min=0;
+    int massive_coord[2], min_matrix[m-1][n-1];
+    for (i=0;i<m;i++)                                                       //Minimum of matrix
+    {
+        for (j=0;j<n;j++)
+        {
+            if ( random_matrix[i][j] < min )
+            {
+                min = random_matrix[i][j];
+            }
+        }
+    }
+    printf("Minimum: %d\n", min);
+    for (i=0;i<m;i++)                                                      //How many are there minimums?
+    {
+        for (j=0;j<n;j++)
+        {
+            if ( random_matrix[i][j] == min )
+            {
+                minimums++;
+            }
+        }
+    }
+    if (minimums==1)                                                       //If there is one minimum, we must find its
+    {                                                                      //string and column, delete it and show changed matrix
+        for (i=0;i<m;i++)
+        {
+            for (j=0;j<n;j++)
+            {
+                if ( random_matrix[i][j] == min )
+                {
+                    massive_coord[1]=i;
+                    massive_coord[2]=j;
+                }
+            }
+        }
+        printf("Result:\n");
+        for (i=0;i<m;i++)
+        {
+            for (j=0;j<n;j++)
+            {
+                if ( i!=massive_coord[1] && j!=massive_coord[2])
+                {
+                    min_matrix[i][j] = random_matrix[i][j];
+                    printf("%3d ", min_matrix[i][j]);
+                }
+            }
+            if ( i!=massive_coord[1] )
+            {
+                printf("\n");
+            }
+        }
+    }
+    else                                                                 //If there are several same minimums, the program must choose anyboby,
+    {
         int number;                                                      //find its string and column, delete it and show changed matrix
-		printf("%d mins\n", minimums);
-		printf("What will number be delete? ");
-		number = rand_chislo(1,minimums);
-		printf("Number %d\n", number);
-		minimums=0;
-		for (i=0;i<m;i++)
-		{
-			for (j=0;j<n;j++)
-			{
-				if ( random_matrix[i][j]==min )
-				{
-					minimums++;
-					if (minimums==number)
-					{
-						massive_coord[1]=i;
-						massive_coord[2]=j;
-					}
-				}
-			}
-		}
-		printf("Result:\n");
-		for (i=0;i<m;i++)
-		{
-			for (j=0;j<n;j++)
-			{
-				if ( i!=massive_coord[1] && j!=massive_coord[2])
-				{
-					min_matrix[i][j] = random_matrix[i][j];
-					printf("%3d ", min_matrix[i][j]);
-				}
-			}
-			if ( i!=massive_coord[1] )
-			{
-				printf("\n");
-			}
-		}
-	}
+        printf("%d mins\n", minimums);
+        printf("What will number be delete? ");
+        number = rand_chislo(1,minimums);
+        printf("Number %d\n", number);
+        minimums=0;
+        for (i=0;i<m;i++)
+        {
+            for (j=0;j<n;j++)
+            {
+                if ( random_matrix[i][j]==min )
+                {
+                minimums++;
+                    if (minimums==number)
+                    {
+                        massive_coord[1]=i;
+                        massive_coord[2]=j;
+                    }
+                }
+            }
+        }
+        printf("Result:\n");
+        for (i=0;i<m;i++)
+        {
+            for (j=0;j<n;j++)
+            {
+                if ( i!=massive_coord[1] && j!=massive_coord[2])
+                {
+                    min_matrix[i][j] = random_matrix[i][j];
+                    printf("%3d ", min_matrix[i][j]);
+                }
+            }
+            if ( i!=massive_coord[1] )
+            {
+                printf("\n");
+            }
+        }
+    }
 
     printf("Forth task: enter a matrix manually.\nSize of random matrix: %d:%d\n", m, n);
     int k, l;
