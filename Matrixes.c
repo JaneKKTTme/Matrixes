@@ -9,8 +9,8 @@
 
 int rand_chislo(int min_rand,int max_rand)                                  //Random function
 {
-	int g = min_rand + rand()%(max_rand - min_rand + 1);
-	return g;
+    int g = min_rand + rand()%(max_rand - min_rand + 1);
+    return g;
 }
 
 int main()
@@ -168,40 +168,40 @@ int main()
         stack[i] = numeric;
     }
     for (i=0;i<k;i++)                                                     //Stack of elements of future matrix -> Matrix
+    {
+        for (j=0;j<l;j++)
         {
-            for (j=0;j<l;j++)
+            if ( x<size )
             {
-                if ( x<size )
-                {
-                    matrix[i][j] = stack[x];
-                    x++;
-                }
-                else
-                    printf("loser\n");
+                matrix[i][j] = stack[x];
+                x++;
             }
+            else
+                printf("loser\n");
         }
+    }
     printf("Result:\n");
     for (i=0;i<k;i++)
+    {
+        for (j=0;j<l;j++)
         {
-            for (j=0;j<l;j++)
-            {
-                printf("%3d ", matrix[i][j]);
-            }
-            printf("\n");
+            printf("%3d ", matrix[i][j]);
         }
+        printf("\n");
+    }
 
-	printf("Fifth task: find the composition of two matrix.");
-	int s;
-	if ( n==k )
+    printf("Fifth task: find the composition of two matrix.");
+    int s;
+    if ( n==k )
     {
         int result_matrix[m][l];
         for (i=0;i<k;i++)
-         {
+            {
             for (j=0;j<n;j++)
             {
                     result_matrix[i][j] = 0;
             }
-         }
+            }
         for (i=0;i<m;i++)
         {
             for(j=0;j<l;j++)
