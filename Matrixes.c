@@ -7,7 +7,7 @@
 #define MAX_STRING 10
 #define MIN_COLUMN 5
 
-int rand_chislo(int min_rand,int max_rand)                                  //Random function
+int rand_chislo(int min_rand,int max_rand)                                  /*Random function*/
 {
     int g = min_rand + rand()%(max_rand - min_rand + 1);
     return g;
@@ -15,7 +15,7 @@ int rand_chislo(int min_rand,int max_rand)                                  //Ra
 
 int main()
 {
-    int n, m;                                                               //The size of matrix by random function
+    int n, m;                                                               /*The size of matrix by random function*/
     srand(time(NULL));
     m = rand_chislo(MIN_STRING,MAX_STRING);
     n = rand_chislo(MIN_COLUMN,MAX_STRING);
@@ -23,7 +23,7 @@ int main()
     int i, j;
     printf("First task: create a random matrix.\n");
     printf("Result:\n");
-    for (i=0;i<m;i++)                                                       //Matrix by random function
+    for (i=0;i<m;i++)                                                       /*Matrix by random function*/
 	{
         for (j=0;j<n;j++)
 		{
@@ -42,13 +42,13 @@ int main()
             new_matrix[i][j]=random_matrix[i][j];
         }
     }
-    for (j=0;j<n;j++)                                                       //Swap first and last lines and turn over them
+    for (j=0;j<n;j++)                                                       /*Swap first and last lines and turn over them*/
 	{
 		new_matrix[0][j] = random_matrix[m-1][n-1-j];
 		new_matrix[m-1][n-1-j] = random_matrix[0][j];
 	}
     printf("\nResult:\n");
-    for (i=0;i<m;i++)                                                       //Withdraw the changed matrix
+    for (i=0;i<m;i++)                                                       /*Withdraw the changed matrix*/
 	{
 		for (j=0;j<n;j++)
 		{
@@ -60,7 +60,7 @@ int main()
     printf("Third task:find minimum element of random matrix and delete line and column,\nat the intersection of which is located it.\n");
     int minimums=0, min=0;
     int massive_coord[2], min_matrix[m-1][n-1];
-    for (i=0;i<m;i++)                                                       //Minimum of matrix
+    for (i=0;i<m;i++)                                                       /*Minimum of matrix*/
     {
         for (j=0;j<n;j++)
         {
@@ -71,7 +71,7 @@ int main()
         }
     }
     printf("Minimum: %d\n", min);
-    for (i=0;i<m;i++)                                                      //How many are there minimums?
+    for (i=0;i<m;i++)                                                      /*How many are there minimums?*/
     {
         for (j=0;j<n;j++)
         {
@@ -81,8 +81,8 @@ int main()
             }
         }
     }
-    if (minimums==1)                                                       //If there is one minimum, we must find its
-    {                                                                      //string and column, delete it and show changed matrix
+    if (minimums==1)                                                       /*If there is one minimum, we must find its*/
+    {                                                                      /*string and column, delete it and show changed matrix*/
         for (i=0;i<m;i++)
         {
             for (j=0;j<n;j++)
@@ -111,9 +111,9 @@ int main()
             }
         }
     }
-    else                                                                 //If there are several same minimums, the program must choose anyboby,
+    else                                                           /*If there are several same minimums, the program must choose anyboby,*/
     {
-        int number;                                                      //find its string and column, delete it and show changed matrix
+        int number;                                                /*find its string and column, delete it and show changed matrix*/
         printf("%d mins\n", minimums);
         printf("What will number be delete? ");
         number = rand_chislo(1,minimums);
@@ -162,12 +162,12 @@ int main()
     int stack[size];
     int numeric;
     x=0;
-    for (i=0;i<size;i++)                                                   //By stack input elements of future matrix
+    for (i=0;i<size;i++)                                                   /*By stack input elements of future matrix*/
     {
         scanf("%d", &numeric);
         stack[i] = numeric;
     }
-    for (i=0;i<k;i++)                                                     //Stack of elements of future matrix -> Matrix
+    for (i=0;i<k;i++)                                                     /*Stack of elements of future matrix -> Matrix*/
     {
         for (j=0;j<l;j++)
         {
