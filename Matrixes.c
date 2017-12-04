@@ -60,6 +60,10 @@ int main()
     printf("Third task:find minimum element of random matrix and delete line and column,\nat the intersection of which is located it.\n");
     int minimums=0, min=0;
     int massive_coord[2], min_matrix[m-1][n-1];
+    for (i=0;i<2;i++)
+    {
+        massive_coord[i]=0;
+    }
     for (i=0;i<m;i++)                                                       /*Minimum of matrix*/
     {
         for (j=0;j<n;j++)
@@ -89,8 +93,8 @@ int main()
             {
                 if ( random_matrix[i][j] == min )
                 {
-                    massive_coord[1]=i;
-                    massive_coord[2]=j;
+                    massive_coord[0]=i;
+                    massive_coord[1]=j;
                 }
             }
         }
@@ -99,13 +103,13 @@ int main()
         {
             for (j=0;j<n;j++)
             {
-                if ( i!=massive_coord[1] && j!=massive_coord[2])
+                if ( i!=massive_coord[0] && j!=massive_coord[1])
                 {
                     min_matrix[i][j] = random_matrix[i][j];
                     printf("%3d ", min_matrix[i][j]);
                 }
             }
-            if ( i!=massive_coord[1] )
+            if ( i!=massive_coord[0] )
             {
                 printf("\n");
             }
