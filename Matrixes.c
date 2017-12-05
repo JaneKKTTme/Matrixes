@@ -199,13 +199,13 @@ int main()
     if ( n==k )
     {
         int result_matrix[m][l];
-        for (i=0;i<k;i++)
+        for (i=0;i<m;i++)
+        {
+            for (j=0;j<l;j++)
             {
-            for (j=0;j<n;j++)
-            {
-                    result_matrix[i][j] = 0;
+                   result_matrix[i][j] = 0;
             }
-            }
+        }
         for (i=0;i<m;i++)
         {
             for(j=0;j<l;j++)
